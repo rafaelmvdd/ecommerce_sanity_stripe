@@ -18,7 +18,9 @@ const Navbar = () => {
         onClick={() => setShowCart(true)}
       >
         <AiOutlineShopping />
-        <span className="cart-item-qty" suppressHydrationWarning>{totalQuantities}</span>
+        <span className="cart-item-qty" suppressHydrationWarning>
+          {totalQuantities}
+        </span>
       </button>
 
       {showCart && <Cart />}

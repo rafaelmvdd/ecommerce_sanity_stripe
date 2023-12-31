@@ -20,7 +20,7 @@ export const StateContext = ({ children }) => {
   const [cartItems, setCartItems] = useState(getLocalStorage('cartItems'));
   const [totalPrice, setTotalPrice] = useState(getLocalStorage('totalPrice'));
   const [totalQuantities, setTotalQuantities] = useState(
-    getLocalStorage('totalQuantities')
+    getLocalStorage('totalQuantities'),
   );
   const [qty, setQty] = useState(1);
 
@@ -35,7 +35,7 @@ export const StateContext = ({ children }) => {
 
   const onAdd = (product, quantity) => {
     const checkProductInCart = cartItems.find(
-      (cartProduct) => cartProduct._id === product._id
+      (cartProduct) => cartProduct._id === product._id,
     );
     setTotalPrice(totalPrice + product.price * quantity);
     setTotalQuantities(totalQuantities + quantity);
@@ -72,25 +72,25 @@ export const StateContext = ({ children }) => {
     index = cartItems.findIndex((product) => product._id === id);
 
     if (value === 'inc') {
-      setCartItems( prevCartItems =>
-        prevCartItems.map( item => {
-            if (item._id === id){
-                return {...item, quantity: findProduct.quantity + 1}
-            }
-            return item
-        })
+      setCartItems((prevCartItems) =>
+        prevCartItems.map((item) => {
+          if (item._id === id) {
+            return { ...item, quantity: findProduct.quantity + 1 };
+          }
+          return item;
+        }),
       );
       setTotalPrice(totalPrice + findProduct.price);
       setTotalQuantities(totalQuantities + 1);
     } else if (value === 'dec') {
       if (findProduct.quantity > 1) {
-        setCartItems( prevCartItems =>
-          prevCartItems.map( item => {
-              if (item._id === id){
-                  return {...item, quantity: findProduct.quantity - 1}
-              }
-              return item
-          })
+        setCartItems((prevCartItems) =>
+          prevCartItems.map((item) => {
+            if (item._id === id) {
+              return { ...item, quantity: findProduct.quantity - 1 };
+            }
+            return item;
+          }),
         );
         setTotalPrice(totalPrice - findProduct.price);
         setTotalQuantities(totalQuantities - 1);
