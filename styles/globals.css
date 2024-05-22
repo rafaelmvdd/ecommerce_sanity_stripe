@@ -3,18 +3,8 @@ body,
 * {
   padding: 0;
   margin: 0;
-  font-family:
-    -apple-system,
-    BlinkMacSystemFont,
-    Segoe UI,
-    Roboto,
-    Oxygen,
-    Ubuntu,
-    Cantarell,
-    Fira Sans,
-    Droid Sans,
-    Helvetica Neue,
-    sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   box-sizing: border-box;
 }
 ::-webkit-scrollbar {
@@ -170,7 +160,7 @@ span.text-red {
 .hero-banner-container h1 {
   color: white;
   font-size: 10em;
-  margin-left: -20px;
+  margin-left: -4px;
   text-transform: uppercase;
 }
 .hero-banner-image {
@@ -618,19 +608,28 @@ span.text-red {
   margin-top: 10px;
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 1000px) {
   .hero-banner-container {
-    height: 560px;
+    height: 100%;
+  }
+  .hero-banner-container-left {
+    display: flex;
+    flex-direction: column;
   }
   .hero-banner-image {
+    position: relative;
     width: 77%;
-    height: 62%;
-    top: -2%;
-    right: -6%;
+    height: 77%;
+    right: 0%;
+  }
+  .hero-image-container {
+    display: flex;
+    justify-content: center;
   }
   .footer-banner-container {
     height: 560px;
     margin-top: 80px;
+    display: none;
   }
   .footer-banner-image {
     width: 77%;
